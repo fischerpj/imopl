@@ -1,9 +1,13 @@
 # Introduction
 
-This is a book created from markdown and executable code.
+start with todo list
 
-See @knuth84 for additional discussion of literate programming.
+1.  prix évaluation
 
-```{r}
-1 + 1
-```
+2.  rénovation: séquence
+
+3.  Bill of Materials
+
+4.  Chiffres: conso, taxe
+
+5.  notaire
