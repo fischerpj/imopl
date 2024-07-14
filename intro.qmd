@@ -2,12 +2,14 @@
 
 start with todo list
 
-1.  prix évaluation
+-   prix évaluation d'achat à 255K
 
-2.  rénovation: séquence
+-   rénovation: séquence
 
-3.  Bill of Materials
+https://immobilier.lefigaro.fr/faire-des-travaux/guide-des-travaux/1582-comment-estimer-les-travaux-dans-une-maison/
 
-4.  Chiffres: conso, taxe
+-   Bill of Materials
 
-5.  notaire
+-   Chiffres: conso, taxe
+
+-   notaire

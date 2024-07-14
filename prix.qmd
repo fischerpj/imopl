@@ -2,4 +2,16 @@
 title: "prix"
 ---
 
-benchmark de référence
+#### équation pour 113 m2 à rénover totalement
+
+> il faut acquérir pour **255K** et faire les travaux pour **170K** pour une somme de **425K**
+
+-   prix plafond pas vendu depuis longtemps: **3.760**pm2
+
+-   prix de rénovation totale: **1.500**pm2
+
+-   soit prix maxi avant rénovation : **2.260**pm2
+
+[![Clémentville Benchmark](images/appart_clementville_Screenshot%202024-07-14%20143446.png)](https://www.lesiteimmo.com/acheter/appartement-4pieces/montpellier-34070/28976082)
+
+prix du marché

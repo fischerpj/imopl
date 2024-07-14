@@ -1,3 +1,7 @@
 # Preface {.unnumbered}
 
 This is a Quarto book for IMOPL project.
+
+Abstract: Consolider toutes les infos pour la maison à Montpellier.
+
+\

@@ -1,0 +1,37 @@
+---
+title: "triangulation"
+---
+
+> il faudrait acheter à 2.5K les 113m2 pour 280K
+
+meilleure estimation à partir du maxi refait à 4pm2 incluant 1.5K de rénovation totale soit 2.5K à l'achat  
+
+```{r}
+data <- tibble::tribble(
+      ~agence, ~value, ~etat, ~surface,
+      "foncia", 333, "à refaire", 110,
+      "foncia", 293, "à refaire_mini", 110,
+      "foncia", 393, "à refaire_maxi", 110,
+      "foncia", 375, "refait_moyen", 110,
+      "foncia", 330, "refait_mini", 110,
+      "foncia", 442, "refait_maxi", 110,
+      "meilleurs", 303, "à refaire_moyen", 110,
+      "meilleurs", 387, "refait_moyen", 110,
+      "meilleurs", 262, "à refaire_mini", 110,
+      "meilleurs", 333, "refait_mini", 110,
+      "meilleurs", 345, "à refaire_maxi", 110,
+      "meilleurs", 440, "refait_maxi", 110,
+) 
+```
+
+```{r}
+data |>
+  dplyr::mutate(pm2= value/surface,
+                new= pm2*113) |>
+  dplyr::arrange(desc(pm2)) |>
+  gt::gt() |>
+  gt::fmt_number(decimals=3, columns= "pm2") |>
+  gt::fmt_number(decimals=0, columns= "new")
+
+```
+

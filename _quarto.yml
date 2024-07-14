@@ -2,14 +2,16 @@ project:
   type: book
 
 book:
-  title: "imopl"
-  author: "Jane Doe"
+  title: "Hompl"
+  author: "PjF"
   date: "7/14/2024"
   chapters:
     - index.qmd
     - intro.qmd
+    - prix.qmd
+    - plan.qmd
+    - finance.qmd
     - summary.qmd
-    - references.qmd
 
 bibliography: references.bib
 
@@ -18,6 +20,8 @@ format:
     theme: cosmo
   pdf:
     documentclass: scrreprt
+    toc: true
+    geometry: "left=2cm,right=2cm,top=1cm,bottom=1cm"
 
 editor: visual
 

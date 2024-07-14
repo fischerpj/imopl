@@ -1,3 +1,11 @@
----
-title: "finance"
----
+# finances
+
+frais de notaires approx. 7.2 %
+
+![](images/frais_notaires.png)
+
+frais d'agence
+
+charges mensuelles: 2000 /12= 167 Euros
+
+taxes foncières: 2500 euros
