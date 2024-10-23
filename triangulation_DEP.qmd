@@ -1,12 +1,26 @@
 ---
-title: "triangulation"
+title: "triangulation des prix"
 ---
 
-> il faudrait acheter à 2.5K les 113m2 pour 280K
+> **il faudrait acheter à 2.5K les 113m2 pour 280K**
 
-meilleure estimation à partir du maxi refait à 4pm2 incluant 1.5K de rénovation totale soit 2.5K à l'achat  
+formule: meilleure estimation à partir du maxi refait à 4pm2 incluant 1.5K de rénovation totale soit 2.5K à l'achat
 
-```{r}
+### équation pour 113 m2 à rénover totalement
+
+> il faut acquérir pour \*\*255K\*\* et faire les travaux pour \*\*170K\*\* pour une somme de \*\*425K\*\*
+
+-   prix plafond pas vendu depuis longtemps: \*\*3.760\*\*pm2
+
+-   prix de rénovation totale: \*\*1.500\*\*pm2
+
+-   soit prix maxi avant rénovation : \*\*2.260\*\*pm2
+
+\[!\[Clémentville Benchmark\](images/appart_clementville_Screenshot.png)\](https://www.lesiteimmo.com/acheter/appartement-4pieces/montpellier-34070/28976082)
+
+prix du marché
+
+```{r, "ESTIM", echo=FALSE}
 data <- tibble::tribble(
       ~agence, ~value, ~etat, ~surface,
       "foncia", 333, "à refaire", 110,
@@ -24,7 +38,7 @@ data <- tibble::tribble(
 ) 
 ```
 
-```{r}
+```{r, VIEW, echo=FALSE}
 data |>
   dplyr::mutate(pm2= value/surface,
                 new= pm2*113) |>
@@ -34,4 +48,3 @@ data |>
   gt::fmt_number(decimals=0, columns= "new")
 
 ```
-

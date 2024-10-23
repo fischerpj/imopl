@@ -1,0 +1,11 @@
+---
+title: "rooms"
+---
+
+```{r}
+library(hompl)
+
+rooms_() |>
+  dplyr::select(-dplyr::matches("^isout|^h$|^comment|^type")) |>
+  gt::gt()
+```

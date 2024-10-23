@@ -1,0 +1,12 @@
+---
+title: "calcul d'énergie"
+---
+
+énergie quantifiable
+
+$$Cm = a \cdot \frac{{(1 + i)^n - 1}}{i}$$
+$$Cms = 4.186~kJ.kg^{-1}.K^{-1}$$
+
+ - \$V_n\$ : la valeur acquise par la suite des annuités
+
+

@@ -1,0 +1,61 @@
+---
+title: "enveloppe du bâti"
+---
+
+**murs et ouvertures**: il faudrait identifier sur le plan de masse les murs et les fenêtres, et confirmer un par un **largeur** et **hauteur** en vue d'un chiffrage de menuiserie et d'isolation intérieure. Alors qu'il existe 9 ouvertures individuellement cadrées, et que par ailleurs sur une triple exposition comment arriver à distinguer 6 murs ?
+
+cas d'utilisation: les murs extérieurs de surface 95m2 possèdent des ouvertures pour 30m2; il reste 65m2 pour l'isolation intérieure.
+
+```{r, MURS, echo=FALSE}
+hauteur <-2.5
+
+ tibble::tribble(
+    ~id, ~desc, ~categorie, ~surf, ~haut, ~larg, ~comment,
+    "W4", "mur4.sud", "mur_int_plan",NA, hauteur, 3.3+0.2+1.97+0.07+0.07+2.56+3.51, NA,
+      "W4", "mur4.sud", "mur_ext_plan",NA, hauteur, 3.3+0.2+1.97+0.07+0.07+2.56+3.51+0.80, NA,
+      "W3", "mur3.ouest", "mur_ext_plan",NA, hauteur, 4.895+1.5+1.92+1.5+0.95, NA,
+    "W1", "mur1", "mur_expert", 16.74, hauteur, NA, NA,
+    "W2", "mur2", "mur_expert",9.7, hauteur, NA, "veranda",
+    "W3", "mur3", "mur_expert",10, hauteur, NA, NA,
+    "W4", "mur4", "mur_expert",22.92, hauteur, NA, NA,
+    "W5", "mur5", "mur_expert",7.2, hauteur, NA, NA,
+    "W6", "mur6", "mur_expert",9.8, hauteur, NA, NA,
+    "LE", "face_est", "mur_linéaire", NA , hauteur, 12.165+1.375+1.81, NA,
+    "LW", "face_ouest", "mur_linéaire", NA, hauteur, 12.165-1.375,NA,
+    "LS", "face_sud", "mur_linéaire", NA, hauteur, 3.51+2.56+1.97+3.30+0.6, NA,
+    "F3a", "fenetre3-ouest", "ouverture_plan", NA, 2.32, 1.5, "sud",
+    "F3b", "fenetre3-ouest", "ouverture_plan", NA, 2.32, 1.5, "sud",
+        "F4a", "fenetre4-sud", "ouverture_plan",NA, 2, 2.05, "ch2.sud",
+    "F4b", "fenetre4-sud", "ouverture_plan",NA, 2, 2.05, "ch1.sud",
+    "F1", "fenetre1", "ouverture_expert",16.06, hauteur, NA, "est",
+    "F2", "fenetre2", "ouverture_expert",6.3, hauteur, NA, "ouest",
+    "F3", "fenetre3", "ouverture_expert", 6.12, hauteur, NA, "sud",
+    "F4", "fenetre4", "ouverture_expert",0.96, hauteur, NA, "sud",
+ ) |>
+   dplyr::mutate(larg=dplyr::case_when(is.na(larg)~surf/haut,
+                                       TRUE~larg),
+                 surf= dplyr::case_when(is.na(surf)~haut*larg,
+                                        TRUE~surf)
+                 )|>
+  gt::gt(groupname_col = "categorie") |>
+  gt::summary_rows(
+    columns= c('surf','larg'),
+    fns = list(
+      total = "sum"
+      ),
+    side= "top",
+    fmt = list(~gt::fmt_number(., decimals = 2))
+    ) |>
+  gt::fmt_number(decimals=2) |>
+  gt::tab_header("murs et fenetres")
+```
+
+![murs 1&2](images/ads_mur1-2.png)
+
+![mur 3](images/ads_mur3.png)
+
+![murs 4&5&6](images/ads_murs4-6.png)
+
+![fenêtres 1 & 2](images/ads_fenetre1-2.png)
+
+![fenêtres 3&4](images/ads_fenetre3-4.png)

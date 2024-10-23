@@ -1,0 +1,90 @@
+---
+title: "calcul de rénovation"
+---
+
+```{r, echo=FALSE}
+geom <- tibble::tribble(
+      ~type, ~local, ~surface, ~larg, ~long, ~materiau, ~quant, ~prix_unit,
+      "électricité","tous",  0, 0.88, 2.1, "prise", 113, 0.15,
+      "chauffage","tous",  0, 0.88, 2.1, "prise", 1, 15,
+      "ouverture","entrée",  NA, 0.88, 2.1, "bois", 1, 1.2,
+      "ouverture","cuisine",   0, 1.5, 2.32, "pvc", 1, 1.2,
+      "ouverture","cuisine",   0, 1.5, 2.32, "volet", 1, 0.685,
+      "ouverture","chambre3",  0, 1.5, 2.32, "pvc", 1, 1.2,
+      "ouverture","chambre3",  0, 1.5, 2.32, "volet", 1, 0.685,
+      "ouverture","chambre2",  0, 1.5, 2.32, "pvc", 1, 0.8,
+      "ouverture","chambre2",  0, 1.5, 2.32, "volet", 1, 0.685,
+      "ouverture","chambre1",  0, 1.5, 2.32, "pvc", 1, 0.8,
+      "ouverture","chambre1",  0, 1.5, 2.32, "volet", 1, 0.685,
+      "ouverture","chambre1",  0, 1.5, 2.32, "pvc", 1, 1,
+      "ouverture","chambre1",  0, 1.5, 2.32, "volet", 1, 0.685,
+      "ouverture","séjour",  0, 2.55, 2.32, "volet", 2, 2*0.685,
+      "ouverture","séjour",  0, 2.55, 2.32, "pvc", 2, 2.5,
+      "ouverture","séjour",  0, 2.5, 5, "store", 1, 1,
+      "ouverture","studio",   0, 2.55, 2.32, "pvc", 1, 2.5,
+      "ouverture","studio",   0, 2.55, 2.32, "volet", 1, 2*0.685,
+      "couloir","entrée",    7.6, 2.57, 2.7, "sol", 1, 0.1,
+      "cuisine","cuisine",  0, NA, NA, "intégrée", 1, 12,
+      "cuisine","cuisine",  8.67, NA, NA, "sol", 1, 0.1,
+      "pièce","séjour",   37.82, 4, 6.485, "sol", 1, 0.1,
+      # "pièce","studio",   37.82, 4, 2.9,
+      "couloir","couloir",  6.39, NA, NA, "sol", 1, 0.1,
+      "chambre","placard1", 0.96, NA, NA, "sol", 1, 0.1,
+      "chambre","placard2", 0.72, NA, NA, "sol", 1, 0.1,
+      "chambre","placard3", 0.72, NA, NA, "sol", 1, 0.1,
+      "chambre","chambre1", 12.08, 3.51, 3.66, "sol", 1, 0.1,
+      "chambre","chambre2", 11.17, 3.09, 3.30, "sol", 1, 0.1,
+      "chambre","chambre3", 12.95, 3.3, 3.39, "sol", 1, 0.1,
+      # "chambre","chambre1", 12.08, 3.51, 3.66,
+      # "chambre","chambre2", 2, 0.55, 1.20,
+      # "chambre","chambre3", 12.95, 3.3, 3.39,
+      "sanitaire","salle_eau", 5.85, NA, NA, "sdb", 1, 6,
+      "sanitaire","salle_bain", 4.29, NA, NA, "sdb", 1, 6,
+      "sanitaire","wc",  1.06, NA, NA, "sol", 1, 0.1,
+      "sanitaire","wc",  0, NA, NA, "wc", 1, 1,
+      "couloir","dégagement", 2.97, NA, NA, "sol", 1, 0.1,
+) |>
+  dplyr::mutate(quant = dplyr::case_when(materiau=="sol"~surface,
+                                         TRUE~quant))
+
+geom |>
+  dplyr::mutate(value= quant*prix_unit) |>
+  dplyr::select(-dplyr::matches("diff|^Xcalc")) |>
+  gt::gt() |>
+  gt::grand_summary_rows(
+    columns = c("surface","value"),
+    fns = list(
+      total = "sum"
+    ),
+    side= "top") |>
+  gt::fmt_number(decimals=2)
+```
+
+```{r, echo=FALSE}
+data <- tibble::tribble(
+      ~categorie, ~element, ~value, ~quantité, ~prix_unit,
+      "sol", "carrelage", 1, 100, 35,
+      "sol", "sous-couche", 1, 100, 40,
+      "sol", "pose", 1, 100, 30,
+      "ouverture", "fenêtre", 1, 10, 1,
+      "ouverture", "porte-fenêtre", 1, 10, 1,
+      "ouverture", "store", 1, 10, 1,
+      "elec", "tableau", 1, 10, 1,
+      "elec", "prise", 1, 10, 1,
+      "elec", "luminaire", 1, 10, 1,
+      "ecs", "chauffe-eau", 1, 10, 1,
+      "chauff", "pac", 1, 10, 1,
+      "murs", "papier-peint", 1, 10, 1,
+      "murs", "isolation", 1, 10, 1,
+      "sanitaire", "wc", 1, 10, 1,
+      "sanitaire", "sdb1", 1, 10, 1,
+      "sanitaire", "sdb2", 1, 10, 1,
+      "mobilier", "literie", 1, 10, 1,
+      "cuisine", "intégrée", 1, 10, 1,
+) 
+
+data |>
+  gt::gt() |>
+  gt::fmt_number(decimals=3)
+
+```

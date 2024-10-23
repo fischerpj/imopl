@@ -4,14 +4,16 @@ project:
 book:
   title: "Hompl"
   author: "PjF"
-  date: "7/14/2024"
+  date: now
   chapters:
     - index.qmd
-    - intro.qmd
-    - prix.qmd
-    - plan.qmd
     - finance.qmd
-    - summary.qmd
+    - prix.qmd
+    - travaux.qmd
+    - enveloppe.qmd
+    - rooms.qmd
+    - plan.qmd
+    - references.qmd
 
 bibliography: references.bib
 

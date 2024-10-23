@@ -2,4 +2,10 @@
 title: "plan"
 ---
 
+-   Bâtiment A Lou Castelet MMe Lavabre / Del Guidice / Courtier
+
+-   Syndic Agence Saint Pierre
+
+-   Budget 2024 35.620 /16 = 2.226 / 12 = 185 /mois
+
 ![plan lou_castelet](images/plan_lou_castelet.png)

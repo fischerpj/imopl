@@ -2,6 +2,31 @@
 title: "prix"
 ---
 
+Résumé
+
+1.  le **pm2 plafond** s'établit à 3.760 (Clémentville non vendu)
+
+2.  le pm2 **refait_max** (estimé par les agents) ne peut pas dépasser 3.700
+
+3.  or pm2 **rénovation complète** se monte à 1.500
+
+4.  d'où le **pm2 acheté** ressort à 2.200 max (soit 248K  => 418K rénové )
+
+5.  comparé au mini du pm2 à refaire estimé à 2.380 (soit 269K => 438K rénové)
+
+6.  retenons donc pm2 à 2.300 ( 260K/275K => 430K rénové à 3.8K/pm2 )
+
+7.  soit augmenté des frais, 275K
+
+8.  or dvf2 donne sur le bâtiment pm2_moyen = 2.850 et **pm2_mini = 2.200** (confirmé)
+
+9.  CQFD: achète pm2 à 2.250 refait à 3.750 (255K/270K => 423K)
+
+
+> **il faudrait acheter à 2.5K les 113m2 pour 280K**
+
+formule: meilleure estimation à partir du maxi refait à 4pm2 incluant 1.5K de rénovation totale soit 2.5K à l'achat
+
 #### équation pour 113 m2 à rénover totalement
 
 > il faut acquérir pour **255K** et faire les travaux pour **170K** pour une somme de **425K**
@@ -12,6 +37,43 @@ title: "prix"
 
 -   soit prix maxi avant rénovation : **2.260**pm2
 
-[![Clémentville Benchmark](images/appart_clementville_Screenshot%202024-07-14%20143446.png)](https://www.lesiteimmo.com/acheter/appartement-4pieces/montpellier-34070/28976082)
+[![Clémentville Benchmark](images/appart_clementville_Screenshot.png)](https://www.lesiteimmo.com/acheter/appartement-4pieces/montpellier-34070/28976082)
 
-prix du marché
+estimations du marché
+
+```{r, "ESTIM", echo=FALSE}
+data <- tibble::tribble(
+      ~agence, ~value, ~etat, ~surface, ~categorie,
+      "foncia", 342, "à refaire", 113, "à refaire",
+      "foncia", 300, "à refaire_mini", 113, "à refaire",
+      "foncia", 384, "refait", 113, "refait",
+      "foncia", 339, "refait_mini", 113, "refait",
+      "foncia", 454, "refait_maxi", 113, "refait",
+      "foncia", 333, "à refaire", 110, "à refaire",
+      "foncia", 293, "à refaire_mini", 110, "à refaire",
+      "foncia", 393, "à refaire_maxi", 110,"à refaire",
+      "foncia", 375, "refait_moyen", 110, "refait",
+      "foncia", 330, "refait_mini", 110, "refait",
+      "foncia", 442, "refait_maxi", 110, "refait",
+      "meilleurs", 392, "refait", 113, "refait",
+      "meilleurs", 338, "refait_mini", 113, "refait",
+      "meilleurs", 446, "refait_maxi", 113, "refait",
+      "meilleurs", 303, "à refaire_moyen", 110, "à refaire",
+      "meilleurs", 387, "refait_moyen", 110, "refait",
+      "meilleurs", 262, "à refaire_mini", 110, "à refaire",
+      "meilleurs", 333, "refait_mini", 110,"refait",
+      "meilleurs", 345, "à refaire_maxi", 110,"à refaire",
+      "meilleurs", 440, "refait_maxi", 110,"refait"
+) 
+```
+
+```{r, VIEW, echo=FALSE}
+data |>
+  dplyr::mutate(pm2= value/surface,
+                new= pm2*113) |>
+  dplyr::arrange(desc(pm2)) |>
+  gt::gt(groupname_col = "categorie") |>
+  gt::fmt_number(decimals=3, columns= "pm2") |>
+  gt::fmt_number(decimals=0, columns= "new")
+
+```

@@ -1,4 +1,53 @@
-# finances
+# planning financier
+
+voici comment financer les diverse composantes du projet
+
+```{r, PARAMS}
+params <- list(
+  offre_achat_tc = 290,
+  agence_rate = 0.0563,
+  notaire_rate = 0.072
+)
+
+params |>jsonlite::toJSON()
+```
+
+```{r, FINANCE, echo=FALSE}
+
+
+fina <- tibble::tribble(
+      ~dc, ~poste, ~value, ~comment,
+      "debit","acquisition", -params$offre_achat_tc*(1-params$agence_rate), "lou castelet",
+       "debit","agence",-params$offre_achat_tc*(params$agence_rate), "SVimmo",
+       "debit","notaire", -params$offre_achat_tc*(1-params$agence_rate)*params$notaire_rate, "Eugénie Delpuech",
+       "debit","travaux", -130, "rénov totale",
+       "credit","arkea", 200 , "compte&livrets",
+       "credit","oddo_pg", 120 , "ordinaire",
+       "credit","bkb_", 122 , "festgeld"
+)
+
+fina |>
+  gt::gt(groupname_col = "dc") |>
+  gt::summary_rows(
+    columns= c('value'),
+    fns = list(
+      total = "sum"
+      ),
+    fmt = list(~gt::fmt_number(.,decimals = 3)),
+    side= "top"
+    ) |>
+  gt::grand_summary_rows(
+    columns = c("value"),
+    fns = list(
+      total = "sum"
+    ),
+    fmt = list(~gt::fmt_number(.,decimals = 3)),
+    side= "top") |>
+  gt::fmt_number(columns= "value", decimals=3) |>
+  gt::tab_header("Lou Castelet Projet")
+
+```
+
 
 frais de notaires approx. 7.2 %
 

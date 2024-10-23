@@ -2,6 +2,14 @@
 
 This is a Quarto book for IMOPL project.
 
-Abstract: Consolider toutes les infos pour la maison à Montpellier.
+> Abstract: **Consolider toutes les infos pour l'habitation à Montpellier.**
 
-\
+### ToDo
+
+-   séquençage des travaux
+
+-   notaire
+
+-   retrouver les chiffres de conso, taxe
+
+-   Questions: Infiltrations / Sous Face ?
