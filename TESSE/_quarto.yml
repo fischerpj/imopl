@@ -1,0 +1,28 @@
+project:
+  type: book
+
+book:
+  title: "Hompl"
+  author: "PjF"
+  date: now
+  chapters:
+    - index.qmd
+    - finance.qmd
+    - prix.qmd
+    - travaux.qmd
+    - enveloppe.qmd
+    - rooms.qmd
+    - plan.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  pdf:
+    documentclass: scrreprt
+    toc: true
+    geometry: "left=2cm,right=2cm,top=1cm,bottom=1cm"
+  html:
+    theme: cosmo
+editor: visual
+

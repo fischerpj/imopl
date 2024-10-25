@@ -1,0 +1,23 @@
+project:
+  type: book
+
+book:
+  title: "GLAIEULS"
+  author: "GranPiero"
+  date: now
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  pdf:
+    documentclass: scrreprt
+    geometry: "left=2cm,right=2cm,top=2cm,bottom=2cm"
+  html:
+    theme: cosmo
+
+
