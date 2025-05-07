@@ -48,7 +48,6 @@ fina |>
 
 ```
 
-
 frais de notaires approx. 7.2 %
 
 ![](images/frais_notaires.png)

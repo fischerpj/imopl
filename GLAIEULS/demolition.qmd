@@ -1,0 +1,19 @@
+# Demolitions
+
+## 8 rue des Glaïeuls, Montpellier
+
+[Efficity](https://www.efficity.com/achat-immobilier/maison_86-m2_montpellier_34070_27143866/) https://www.efficity.com/achat-immobilier/maison_86-m2_montpellier_34070_27143866/
+
+- vendeur:    {habitable: 86 m2, terrain: 536m2, prix: 398K} 
+- déclaré:    {habitable: 79m2, garage: 12m2, terrasse: 15m2} selon dgfip Pour IV 263, la surface du bâti est de 79 m² et celle de la parcelle est de 5 ares 36.
+- infos:      {taxe_foncière: 2.1K, conso=  207 kWh/m².an}
+
+## 11 rue des Eglantiers, Montpellier
+
+- vendeur:    {habitable: 112m2, terrain: 533m2, prix: 477K, agent: 0.0484} }  + cuve à fuel enfouie + chaudière à fuel
+- déclaré:    {habitable: 100m2, cave-cellier-buanderie: 12m2, abri-garage-atelier: 0m2} 
+- infos:      {taxe_foncière: 2.183K, conso=  196 kWh/m².an }
+
+[Human Immo](https://www.human-immobilier.fr/annonce-achat-maison-montpellier_280-3545)
+
+https://www.human-immobilier.fr/annonce-achat-maison-montpellier_280-3545

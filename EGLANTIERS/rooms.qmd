@@ -1,0 +1,13 @@
+---
+title: "rooms"
+---
+
+![rooms for Eglantiers](images/rooms.png){width="500"}
+
+```{r}
+library(hompl)
+
+rooms_() |>
+  dplyr::select(-dplyr::matches("^isout|^h$|^comment|^type")) |>
+  gt::gt()
+```

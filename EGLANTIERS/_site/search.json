@@ -1,0 +1,51 @@
+[
+  {
+    "objectID": "prix.html",
+    "href": "prix.html",
+    "title": "prix",
+    "section": "",
+    "text": "Résumé\n\nDu neuf pour 575K€, i.e. 275 K€ (pour terrain 550 m2 à 0.5K) et 300 K€ pour une maison de 120 m2 habitable à 2.5K. Soit inversement 4.792 K€ pm2 neuf.\nMaison ancienne vaudrait à 480 K€ (4K/m2 selon PAP aux églantiers) ou 444 K€ (selon 3.7K du No7). le pm2 moyen maison s’établit à 4.100 (églantiers; 3.700 au no7)\nla rénovation complète monte à 180 K€ (120*1.5)\n\n\n\n\n\n\n\n\n\nConclusion: il faudrait donc acheter les m2 à 395 K€ ou 3.292 par m2 et lui appliquer la rénovation.\n\n\n\n\n\n\nestimations du marché"
+  },
+  {
+    "objectID": "finance.html",
+    "href": "finance.html",
+    "title": "",
+    "section": "",
+    "text": "planning financier\nvoici comment financer les diverse composantes du projet\n\nparams <- list(\n  offre_achat_tc = 350,\n  agence_rate = 0.0484,\n  notaire_rate = 0.072\n)\n\nparams |>jsonlite::toJSON()\n\n{\"offre_achat_tc\":[350],\"agence_rate\":[0.0484],\"notaire_rate\":[0.072]} \n\n\n\n\n\n\n\n\n  \n    \n      Lou Castelet Projet\n    \n    \n    \n      \n      poste\n      value\n      comment\n    \n  \n  \n    sum\n—\n−61.980\n—\n    \n      debit\n    \n    sum\n—\n−503.980\n—\n    \nacquisition\n−333.060\nlou castelet\n    \nagence\n−16.940\nSVimmo\n    \nnotaire\n−23.980\nEugénie Delpuech\n    \ntravaux\n−130.000\nrénov totale\n    \n      credit\n    \n    sum\n—\n442.000\n—\n    \narkea\n200.000\ncompte&livrets\n    \noddo_pg\n120.000\nordinaire\n    \nbkb_\n122.000\nfestgeld\n  \n  \n  \n\n\n\n\nfrais de notaires approx. 7.2 %\n\nfrais d’agence\ncharges mensuelles: 2000 /12= 167 Euros\ntaxes foncières: 2500 euros"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "",
+    "section": "",
+    "text": "Preface\nCeci est le projet de la maison de la rue des Eglantiers.\nles notes concernent: - cuve et chaudière au fioul - triangle cadastral - estimation du prix - liste des travaux - budget prévisionnel: prix, notaire, travaux, équipement - basé sur squelette du Mas de Tesse\n4S RÉNOVATION"
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "",
+    "section": "",
+    "text": "Introduction"
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "",
+    "section": "",
+    "text": "Summary\nIn summary, this book has no content whatsoever."
+  },
+  {
+    "objectID": "plans.html",
+    "href": "plans.html",
+    "title": "",
+    "section": "",
+    "text": "RU IW0041\n\n\n\n\n\nparcelle IW0041"
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "",
+    "section": "",
+    "text": "References"
+  }
+]

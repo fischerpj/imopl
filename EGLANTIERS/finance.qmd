@@ -1,0 +1,72 @@
+# finance
+
+voici comment financer les diverse composantes du projet
+
+```{r, PARAMS, echo= FALSE}
+params <- list(
+  surface = 120, 
+  renovm2 = 1.5,
+  offre_achat_tc = 400,
+  frais_mutation = 29.298,
+  agence_rate = 0.0484,
+  adresse= "églantiers #11",
+  agence = "Human-Immo",
+  notaire_name = "Eugénie Delpuech"
+)
+
+params$mutation_rate = round(( params$frais_mutation/params$offre_achat_tc),3)
+params |>jsonlite::toJSON()
+```
+
+## Grand Total Financement
+
+```{r, FINANCE, echo=FALSE}
+fina <- tibble::tribble(
+      ~dc, ~poste, ~value, ~comment,
+      "debit","acquisition", -params$offre_achat_tc*(1-params$agence_rate), params$adresse,
+       "debit","agence",-params$offre_achat_tc*(params$agence_rate), params$agence,
+       "debit","notaire", -params$frais_mutation, params$notaire_name,
+       "debit","travaux", -params$surface*params$renovm2, "rénov totale",
+       "credit","arkea", 200 , "compte&livrets",
+       "credit","oddo_pg", 120 , "ordinaire",
+       "credit","bkb_", 122 , "festgeld"
+)
+
+fina |>
+  gt::gt(groupname_col = "dc") |>
+  gt::summary_rows(
+    columns= c('value'),
+    fns = list(
+      total = "sum"
+      ),
+    fmt = list(~gt::fmt_number(.,decimals = 3)),
+    side= "top"
+    ) |>
+  gt::grand_summary_rows(
+    columns = c("value"),
+    fns = list(
+      total = "sum"
+    ),
+    fmt = list(~gt::fmt_number(.,decimals = 3)),
+    side= "top") |>
+  gt::fmt_number(columns= "value", decimals=3) |>
+  gt::tab_header(paste('Projet',params$adresse ))
+
+```
+
+## Mutation
+
+350K => 25.865 400K => 29.298  420 => 30.671
+
+![frais de mutation](images/frais_mutation.png)
+
+
+## Divers
+
+frais de notaires approx. `r round(( 29.298/400),1)` %
+
+frais d'agence
+
+charges mensuelles: 0
+
+taxes foncières: ??? euros

@@ -1,0 +1,29 @@
+---
+title: "somme des travaux"
+---
+
+https://immobilier.lefigaro.fr/faire-des-travaux/guide-des-travaux/1582-comment-estimer-les-travauxdans-une-maison/
+
+```{r, WO, echo=FALSE}
+library(hompl)
+
+travaux_() |>
+  dplyr::select(-dplyr::matches("^comment|^version")) |>
+  dplyr::mutate(categorie = toupper(categorie)) |>
+  gt::gt(groupname_col = "categorie") |>
+  gt::summary_rows(
+    columns= c('value'),
+    fns = list(
+      total = "sum"
+      ),
+    side= "top"
+    ) |>
+  gt::grand_summary_rows(
+    columns = c("value"),
+    fns = list(
+      total = "sum"
+    ),
+    side= "top") |>
+  gt::fmt_number(decimals=2)
+
+```

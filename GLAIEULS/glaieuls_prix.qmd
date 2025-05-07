@@ -1,0 +1,72 @@
+---
+title: "Glaieuls_Prix"
+output:
+  pdf_document: default
+date: now
+params:
+  type: "Maison"
+  section: "IV"
+  parcelle: '0263'
+  rue: 'glaieuls'
+  adresse: "8 rue des glaieuls, 34070 Montpellier"
+  terrain_nu: 1
+  surface: 85
+  terrain: 536
+  pmoy: 2.6
+  pm2_terrain: 0.525
+  prix_agent: 500
+  taux_agent: 0.0467
+  taux_notaire: 0.074953 
+  surface_maison: 110
+  pm2_neuf: 2
+  travaux: 210
+  demolition: 40
+  after: 2020
+---
+
+> Objectif: passer de l'offre au prix final, toutes composantes comprises.
+
+Remarques:
+
+- AMG dit "les prix de terrain varient entre 364 €/m² et 835 €/m²"
+- IV maison pm2 : 2.9 en 2024, 2.7 au No 2.
+
+## Maison Neuve
+
+```{r NEUVE, echo=FALSE}
+my_params <- params
+class(my_params) <- "list"
+
+my_params <- within(my_params, {
+  offre_terrain = pm2_terrain*terrain*terrain_nu
+  assiette = pmoy*surface*(1-terrain_nu)+(offre_terrain-0*demolition)*terrain_nu
+  frais_agent <- assiette*taux_agent*(1-0*terrain_nu)
+  offre <- assiette+frais_agent
+  notaire = assiette*taux_notaire
+  prix_net <- prix_agent/(1+taux_agent)
+  pm2 <- prix_net/surface
+  ttc= offre+notaire
+  travaux = travaux*(1-terrain_nu)+(demolition+surface_maison*pm2_neuf)*terrain_nu
+  pm2_refait <- (offre+travaux)/surface_maison
+  projet_final = ttc+travaux
+  refait <- offre + travaux
+  maison_construction = pm2_neuf*surface_maison
+})
+
+discard <- c('typmut','rue','insee')
+my_list <- my_params[!my_params %in% my_params[discard]]
+
+# my_list <- my_params[c('after','surface','pm2_terrain','pm2','pmoy','pm2_refait','prix_agent','prix_net','offre_terrain','offre','assiette','offre','refait','ttc','prix_final','taux_agent','frais_agent','notaire','travaux','maison_totale')] 
+
+# Convert the named list to a dataframe
+df <- data.frame(name = names(my_list), value = unlist(my_list))
+
+list_neuve <- my_list <- my_params[c('terrain_nu','terrain','pm2_terrain','offre_terrain','assiette','taux_agent','frais_agent','offre','taux_notaire','notaire','ttc','surface_maison','pm2_neuf','demolition','maison_construction','travaux','projet_final','pm2_refait')] 
+df_maison <- data.frame(name = names(list_neuve), value = unlist(list_neuve))
+
+df_maison |> gt::gt() |>
+  gt::tab_header('Projet Maison Neuve') |>
+  gt::fmt_number(decimals=3)
+
+```
+

@@ -4,24 +4,23 @@ title: "prix"
 
 Résumé
 
-1.  le **pm2 plafond** s'établit à 3.760 (Clémentville non vendu)
+1.  le **pm2 plafond** s'établit à 3.760 (Clémentville non vendu) ou 3.628 (dvf_q4)
 
 2.  le pm2 **refait_max** (estimé par les agents) ne peut pas dépasser 3.700
 
 3.  or pm2 **rénovation complète** se monte à 1.500
 
-4.  d'où le **pm2 acheté** ressort à 2.200 max (soit 248K  => 418K rénové )
+4.  d'où le **pm2 acheté** ressort à 2.200 max (soit 248K =\> 418K rénové )
 
-5.  comparé au mini du pm2 à refaire estimé à 2.380 (soit 269K => 438K rénové)
+5.  comparé au mini du pm2 à refaire estimé à 2.380 (soit 269K =\> 438K rénové)
 
-6.  retenons donc pm2 à 2.300 ( 260K/275K => 430K rénové à 3.8K/pm2 )
+6.  retenons donc pm2 à 2.300 ( 260K/275K =\> 430K rénové à 3.8K/pm2 )
 
 7.  soit augmenté des frais, 275K
 
 8.  or dvf2 donne sur le bâtiment pm2_moyen = 2.850 et **pm2_mini = 2.200** (confirmé)
 
-9.  CQFD: achète pm2 à 2.250 refait à 3.750 (255K/270K => 423K)
-
+9.  CQFD: achète pm2 à 2.250 refait à 3.750 (255K/270K =\> 423K)
 
 > **il faudrait acheter à 2.5K les 113m2 pour 280K**
 

@@ -1,0 +1,13 @@
+# description
+
+## cadastre IW0041 S=553m2
+
+le triangle rouge est un point de référence géodésique !
+
+![RU IW0041](images/RU_IW041_entete.png){width="450"}
+
+![parcelle IW0041](images/IW_0041_11_eglantiers.png){width="450"}
+
+## maison de 112 m2
+
+![](images/plan-masse.png)

@@ -1,0 +1,79 @@
+# Devis des Travaux
+
+le DPE indique une rénovation complète en **Isolation** (toit, murs, sols), **Chauffage** (+ECS), **Electricité**,  **Ouvertures** (portes, fenêtres),  
+
+## Devis AMG
+
+1. Option Rénovation: 150-177 K soit 1.3-1.6 pm2
+2. Option Démolition: 
+  - démolition:  35-45 K
+  - maison neuve 187-209K pour 110 m2 soit 1.7-1.9 pm2
+3. estimation AMG: 
+  - AMG: 370 K = 3.3 pm2
+  - Efficity: 2.67-3.7K ou 4.8K neuve
+  - cuisine + sdb: 12+ 10 = 22K
+4. Conclusions:
+  - Valeur AMG +rénovation +cuisine +notaire = 370 +170 +30 +22 = 592K (5.2pm2!)
+  - valeur neuve Efficity: 112 * 4.8 = 537K + notaire = 567K (5.06pm2)
+  - valeur reconstruite: terrain +demolition +neuve +notaire = 275 +40 +210 +25 = 550 K (4.91 pm2)
+
+## Cahier des Charges
+
+- DPE label A avec isolation complète; sols, murs extérieurs, plafond. 
+- Gros oeuvre extérieur: garage fermé en bois et passage depuis la rue, élimination du fioul
+- Gros oeuvre intérieur: ouvrir fenêtre nouvelle cuisine et porte fenêtre sur jardin, enlever cheminée.
+- Chauffage avec PAC air/eau distribuée par le sol (réversible), Chauffage solaire pour ECS et couplage partiel à PAC, Photovoltaïque à 50% de l'auto-consommation. Poêle à bois , radiateurs, climatisation sont écartés à ce stade.
+- Electricité neuve
+- Fenêtres et Portes neuves
+- cuisine, sdb et salle eau
+
+```{r, CAT, echo= FALSE}
+tibble::tribble(
+    ~id, ~category, ~order,~composante,
+    "G", "gros-extérieur",0, list('garage','passage','poteau électrique--','cuve fioul&chaudière--','amiante--', 'muret et portail'),
+    "G", "gros-oeuvre",0, list('+porte2','+porte_buanderie','mur_cuisine--','sdb++','salle_eau++','cheminée--'),
+    "I", "isolation", 1, list('sol&chape','mur','plafond','ponts thermiques'),
+    "F", "ouvertures", 4,list('+pf_jardin','pf_entrée_est','pf_séjour','p_entrée_séjour','+porte3'),
+        "F", "ouvertures", 4.1,list('+f_cuisine','4_fenêtres'),
+    "E", "électricité", 3,list('tableau','prises+data'),
+    "C", "chauffage", 2,list('pac air/eau','par sol','chauffe-eau-solaire','bilan énergétique'),
+    "W", "eau&sanitaire",2.1,list('salle_eau','sdb neuve'),
+    "S", "sols", 1.1,list('chauffage','carrelage'),
+    "M", "murs&plafond", 1.2,list('apprêter','déco'),
+    "A", "équipements",6,list('luminaires'),
+    "K", "cuisine",5,list('intégrée'),
+    "X", "divers",7,list()
+  ) |> 
+  dplyr::relocate(order) |>
+  dplyr::arrange(order) |>
+  gt::gt() |>
+  gt::tab_header("Categories de Travaux")
+```
+
+## ToDo
+
+0. inspecter toiture et combles
+1. repérer avec photos ouvertures et dimensions, ainsi que ponts thermiques.
+2. valeurs actuelles des épaisseurs de murs et vitrage ainsi que valeurs associées de conductivité thermique 
+3. repérer mur porteur
+4. valider nouvelles ouvertures, redesign des chambres, sdb, salle eau, buanderie, et emplacement de nouvelle cuisine.
+
+```{r, BOM, echo= FALSE, eval= FALSE}
+library(hompl)
+travaux_eglantiers_() |>
+  dplyr::filter(projet=="EGL") |>
+  dplyr::select(dplyr::matches("^id|element|categorie|value|quant|prix")) |>
+  gt::gt() |>
+  gt::tab_header("Renovation Projet Eglantiers") |>
+  gt::grand_summary_rows(
+    columns = c("value"),
+    fns = list(
+      total = "sum"
+    ),
+    fmt = list(~gt::fmt_number(.,decimals = 3)),
+    side= "top") |>
+  gt::fmt_number(columns= "value", decimals=3) |>
+  gt::fmt_number(columns= "quant", decimals=1)
+
+```
+

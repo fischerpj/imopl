@@ -1,0 +1,43 @@
+---
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+# Preface {.unnumbered}
+
+Ceci est le projet de la maison de la **rue des Eglantiers**, vu
+[ParuVendu
+HumanImmo](https://www.paruvendu.fr/immobilier/pro/human-immobilier-montpellier-chamberte-montpellier-34-98818/1279106432/)
+pour 477K initiaux. Contact: Sébatstien Abbruzzese 0632 72 8106
+
+les notes concernent: - cuve et chaudière au fioul - estimation du
+prix - liste des travaux - budget prévisionnel: prix, notaire, travaux,
+équipement - basé sur squelette du Mas de Tesse
+
+contacts - 4S RÉNOVATION 88 Rue Lazare Ponticelli, 34070 Montpellier,
+France 0467 64 7390 - maprimerenov, ouvrir un dossier/questionnaire et
+demander assistance d'un expert sur l'ensemble chauffage/clim,
+ECS/solaire, électricité/photovoltaîque
+
+Questions 2e visite: - dimensions: l,L,h, angle toiture, - vide
+sanitaire visite et tuyaux et amiante - isolation des murs - gaz A1,A2
+et fioul et electricité - conso: Tesse 16000Kwh, Eglantiers 22000Kwh à
+
+Arguments: - -3.5% sur 2 ans pour les maisons - chamberte est la moins
+chère
+
+## Negociation
+
+1\. connaître le marché ( mieux que pm2)
+
+2\. problématique du bien ( pb vétusté, urbanisme, voisinage) e.g. Il
+faut un compteur Linky pour obtenir aide à la rénov photovoltaïque.
+
+3\. tenir sa position
+
+4\. choisir le timing
+
+5\. identifier les mobiles du vendeur
+
+6\. savoir communiquer par son attitude

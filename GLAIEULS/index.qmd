@@ -1,23 +1,27 @@
 # Preface {.unnumbered}
 
-Dans le quartier des GLAIEULS, les parcelles repérées
+Dans le quartier des GLAIEULS, les parcelles repérées sont toutes en zone **2U2-1fw.**
+
+BENCHMARK: la parcelle au No 10 s'est vendue à 279K.
 
 ```{r, echo=FALSE}
-prix_terrain <- 0.7
+prix_terrain <- 0.5
   tibble::tribble(
     ~pid, ~parcelle, ~section, ~surf, ~adresse, ~bati,  ~proprio,
-    "p1","0265", "IV", 453, "4 glaieuls", 99, "M. Spassaro", 
-    "p2","0264", "IV", 684, "6 glaieuls", 105, "indivision Braimis", 
-    "p3","0263", "IV", 536, "8 glaieuls", 103, "indivision Selme", 
-    "p4","0268", "IV", 298, "18 hortensias", 97, "Mme Galceran",
+    "p1","0265", "IV",453, "4 glaieuls", 100, "M. Spassaro", 
+    "p2","0264", "IV" ,684, "6 glaieuls", 105, "indivision Braimis", 
+    "p3","0263", "IV" ,536, "8 glaieuls", 103, "indivision Selme", 
+    "p4","0268", "IV" ,298, "16 hortensias", 97, "Mme Galceran",
+    "p5","0308", "IV" ,324, "33 hortensias", 136, "M. Cointrel",
+    "p6","0262", "IV" ,364, "10 glaieuls", 110, "M. Gaumain",
   ) |>
-  dplyr::mutate(offre_terrain= prix_terrain*surf) |>
+  dplyr::mutate(offre= prix_terrain*surf) |>
   dplyr::relocate(pid,section,parcelle,adresse,proprio) |>
   dplyr::arrange(desc(surf)) |>
     data.table::data.table() |>
   gt::gt() |>
     gt::fmt_number(decimals=0) |>
-    gt::tab_header("Quartier des Glaieuls, estimé à 0.7/m2")
+    gt::tab_header("Quartier des Glaieuls, estimé à 0.5/m2")
 ```
 
 dont voici le plan cadastral du quartier

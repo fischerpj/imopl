@@ -1,0 +1,31 @@
+# Contrats
+
+Vous pouvez signer l'un de ces 4 contrats :
+
+1. Contrat de construction de maison individuelle NEUVE (CCMI loi 1990) avec un constructeur qui ne vous fournit pas le terrain
+2. Contrat de vente d'immeuble à construire (vente en l'état futur d'achèvement - Vefa) avec un promoteur qui vous fournit le terrain et s'engage à construire une maison
+3. Contrat de maîtrise d'œuvre avec un maître d'œuvre Concepteur, coordonnateur, contrôleur de l’exécution des travaux. Il assiste le propriétaire de la construction. Il peut s'agir d'un architecte, d'un bureau d'études,... qui coordonne les travaux sans les effectuer
+4. Contrat d'entreprise avec chaque corps de métier
+
+Pour la rénovation lourde il faut un contrat de maître d'oeuvre complété d'un contrat d'assurance dommages-ouvrage.  Le maître d'oeuvre propose les artisans qui sont nénamoins contractés par le propriétataire.
+
+Choisir le maître d'oeuvre par ses références, finances, durée d'existence, assurances (RC Pro, dommages-ouvrages), contrat-type,
+
+```{r, echo=FALSE}
+contacts <- tibble::tribble(
+      ~id, ~nom, ~value, ~comment,~dirigeant,~contact,
+      "2","maison france confort", 0, "mpl" , NA, NA,
+      "9","4S Renovation", 0, "mpl familial noRGE" , NA, NA,
+      "9","Concept22", 0, "montarnaud" , "Fethi Bouguerra", "06 51 59 19 52",
+      "1","AMG Patrimoine", 0, "vendargues 110eur" , "Marc Gonzales", "06 86 97 83 91"
+,
+      "9", "SIGNATURE-CONSTRUCTION", 0,"espace-vert", "Jim STROHMENGER", "06.08.33.26.30 js@signatur-constucteur.fr",
+      "3","Renovision", 0, "mpl-visite80eur" , "associé unique","09 54 19 58 55"
+)
+
+contacts |>
+  dplyr::arrange(id) |>
+  dplyr::select(dplyr::matches("nom|dirigeant|contact")) |>
+  gt::gt()
+```
+

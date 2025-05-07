@@ -1,0 +1,82 @@
+---
+title: "triangulation du prix"
+params: 
+  habitable: 120
+---
+
+Résumé
+
+- Du neuf pour un total se montant à **575K€**, i.e. **`r 550*0.5` K€** (pour terrain 550 m2 à 0.5K) et **`r params$habitable*2.5` K€** pour une maison de 120 m2 habitable à 2.5K. Soit inversement **`r round(575/(params$habitable),3)` K€** pm2 neuf.
+
+- Pour une maison ancienne le pm2 médian ressort très vraisemblablement à **3.2** selon l'analyse du dvf.
+
+- la rénovation complète monte à **`r params$habitable*1.5` K€** (120*1.5)
+
+<!-- 2.  le pm2 **refait_max** (estimé par les agents) ne peut pas dépasser 3.700 -->
+
+<!-- 3.  or pm2 **rénovation complète** se monte à 1.500 -->
+
+<!-- 4.  d'où le **pm2 acheté** ressort à 2.200 max (soit 248K  => 418K rénové ) -->
+
+<!-- 5.  comparé au mini du pm2 à refaire estimé à 2.380 (soit 269K => 438K rénové) -->
+
+<!-- 6.  retenons donc pm2 à 2.300 ( 260K/275K => 430K rénové à 3.8K/pm2 ) -->
+
+<!-- 7.  soit augmenté des frais, 275K -->
+
+<!-- 8.  or dvf2 donne sur le bâtiment pm2_moyen = 2.850 et **pm2_mini = 2.200** (confirmé) -->
+
+<!-- 9.  CQFD: achète pm2 à 2.250 refait à 3.750 (255K/270K => 423K) -->
+
+**Conclusion: il faudrait donc acheter les `r params$habitables` m2 à `r 575 - params$habitable*1.5` K€** ou `r round((575 - params$habitable*1.5)/params$habitable,3)` par m2 et lui appliquer la rénovation.
+
+<!-- formule: meilleure estimation à partir du maxi refait à 4pm2 incluant 1.5K de rénovation totale soit 2.5K à l'achat -->
+
+<!-- #### équation pour 113 m2 à rénover totalement -->
+
+<!-- > il faut acquérir pour **255K** et faire les travaux pour **170K** pour une somme de **425K** -->
+
+<!-- -   prix plafond pas vendu depuis longtemps: **3.760**pm2 -->
+
+<!-- -   prix de rénovation totale: **1.500**pm2 -->
+
+<!-- -   soit prix maxi avant rénovation : **2.260**pm2 -->
+
+estimations du marché
+
+```{r, "ESTIM", echo=FALSE, eval= FALSE}
+data <- tibble::tribble(
+      ~agence, ~value, ~etat, ~surface, ~categorie,
+      "foncia", 342, "à refaire", 113, "à refaire",
+      "foncia", 300, "à refaire_mini", 113, "à refaire",
+      "foncia", 384, "refait", 113, "refait",
+      "foncia", 339, "refait_mini", 113, "refait",
+      "foncia", 454, "refait_maxi", 113, "refait",
+      "foncia", 333, "à refaire", 110, "à refaire",
+      "foncia", 293, "à refaire_mini", 110, "à refaire",
+      "foncia", 393, "à refaire_maxi", 110,"à refaire",
+      "foncia", 375, "refait_moyen", 110, "refait",
+      "foncia", 330, "refait_mini", 110, "refait",
+      "foncia", 442, "refait_maxi", 110, "refait",
+      "meilleurs", 392, "refait", 113, "refait",
+      "meilleurs", 338, "refait_mini", 113, "refait",
+      "meilleurs", 446, "refait_maxi", 113, "refait",
+      "meilleurs", 303, "à refaire_moyen", 110, "à refaire",
+      "meilleurs", 387, "refait_moyen", 110, "refait",
+      "meilleurs", 262, "à refaire_mini", 110, "à refaire",
+      "meilleurs", 333, "refait_mini", 110,"refait",
+      "meilleurs", 345, "à refaire_maxi", 110,"à refaire",
+      "meilleurs", 440, "refait_maxi", 110,"refait"
+) 
+```
+
+```{r, VIEW, echo=FALSE, eval= FALSE}
+data |>
+  dplyr::mutate(pm2= value/surface,
+                new= pm2*113) |>
+  dplyr::arrange(desc(pm2)) |>
+  gt::gt(groupname_col = "categorie") |>
+  gt::fmt_number(decimals=3, columns= "pm2") |>
+  gt::fmt_number(decimals=0, columns= "new")
+
+```

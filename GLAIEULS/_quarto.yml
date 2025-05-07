@@ -3,15 +3,15 @@ project:
 
 book:
   title: "GLAIEULS"
+  subtitle: "in XDV/hompl"
   author: "GranPiero"
   date: now
   chapters:
     - index.qmd
-    - intro.qmd
-    - summary.qmd
-    - references.qmd
-
-bibliography: references.bib
+    - parcelles.qmd
+    - urbanisme.qmd
+    - demolition.qmd
+    - summary_prix.qmd
 
 format:
   pdf:

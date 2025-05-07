@@ -1,0 +1,32 @@
+# energie
+
+Option tout Electrique / Photovoltaïque.
+
+Il faut **52 m2** de panneaux pour une Consommation Annuelle de 15000 Kwh à Montpellier.
+
+Ou plutôt **40 m2** (produisant 80% des 15000 KWh annuels avec puissance 9KV-crête ) d'après ENSOL ( panneaux dualSUN efficace à 22% ) pour un budget de **18K€** (option micro-onduleurs et sans batterie) et une réduction EDF de 2/3. Un panneau fait 1.95\*1.13 m2.
+
+les fournisseurs sont Ensol, ARCenergy, maMaisonPositive (panneaux bi-verre, solutium à 23.6, Dimeg), ECOwatt
+
+![](images/elec_conso.png){width="500"}
+
+## Approche
+
+The average annual solar radiation in Montpellier, France, is approximately **1,600 kWh/m²/year**. and
+
+The average efficiency of photovoltaic (PV) systems typically ranges between **15% and 20%**. This means that under standard test conditions, these systems convert 15-20% of the sunlight that hits them into usable electrical energy.
+
+![](images/voltaique.png){width="600"}
+
+```{r, VOLT}
+volt_params <- list(
+  annual_consumption = 15000,
+  avg_annual_radiation = 1600,
+  efficiency = 0.18
+  )
+
+within(volt_params,{
+  panel_m2 = annual_consumption/(avg_annual_radiation*efficiency)
+})
+
+```

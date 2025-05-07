@@ -1,0 +1,48 @@
+# Benchmarks
+
+> nous retenons en median (prix et qualité) **3.2K/m2** en 2024 sur la Chamberte haute avec la conscience que les prix ont fortement chuté depuis 2023. d'où il faut encore déduire le surplus de vétusté induisant les travaux.
+
+voici les benchmarks DVF2 pour une maison sur a) Montpellier en b) section I-VWX et c) rue des églantiers. Alors que 4K/m2 selon PAP aux églantiers ou 3.7K du No7 semble exagéré.
+
+```{r, dvf2_pm, echo=FALSE}
+dvf2_bench <- tibble::tribble(
+      ~editor, ~zone, ~variable, ~median, ~val24, ~val23,
+      "dvf2", "MPL",   "median", 3.750, 3.875, 4.070,
+      "dvf2", "I-VWX", "median", 3.500, 3.180, 3.530,
+      "dvf2", "IV",    "median", 3.400, 2.900, 3.200,
+      "dvf2", "IW",    "median", 3.700, 3.730, 4.000,
+      "dvf2", "IX",    "median", 3.900, 6.000, 2.840,
+      "m-agents","MPL","mean",   3.057, NA, NA,
+      "m-agents","IW","mean",   3.750, NA, NA,
+      "cdc","MPL","mean",   3.120, NA, NA
+) 
+
+dvf2_bench |>
+  dplyr::mutate('variation%' = 100*(val24/val23- 1),
+                valeur24 = 110*val24) |>
+  gt::gt() |>
+  gt::fmt_number(decimals=3)
+
+      
+```
+
+```{r, echo=FALSE}
+p <- hompl::params_()
+
+data_bench <- tibble::tribble(
+      ~editor, ~variable, ~value, ~etat, ~surface, ~categorie, ~src,
+      "meilleurs_agents", "pm2", 3.057, "à refaire", 113, "à refaire", "web",
+      "meilleurs_agents", "pm2", 3.755, "à refaire", 113, "à refaire", "web",
+      "cdc", "pm2", 3.120, "à refaire_mini", 113, "à refaire", "web",
+      "maison", "pm2", 3.883, "à refaire_mini", 113, "à refaire", "web",
+      "my_dvf2", "pm2", 3.386, "à refaire_mini", 113, "egla|metai", "egla|metai"
+    ) |>
+    dplyr::mutate(total= round(p$carrez*value,1)) |>
+    dplyr::arrange(desc(total))
+
+data_bench |>
+  dplyr::relocate(editor,variable,value,total,src) |>
+  dplyr::select(dplyr::matches("^edit|^var|^val|^src|^tot")) |>
+  gt::gt() |>
+  gt::tab_header('Benchmarks')
+```

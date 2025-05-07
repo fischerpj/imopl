@@ -1,0 +1,34 @@
+project:
+  type: book
+
+book:
+  title: "EGLANTIERS 11"
+  author: "PjFischer"
+  date: "11/13/2024"
+  chapters:
+    - index.qmd
+    - description.qmd
+    - devis_AMG.qmd
+    - bom.qmd
+    - energie.qmd
+    - contrats.qmd
+    - contact.qmd
+    - finance.qmd
+    - calc.qmd
+    - prix.qmd
+    - benchmark.qmd
+    - enveloppe.qmd
+    - rooms.qmd
+
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+    toc: true
+    geometry: "left=2.5cm,right=1.5cm,top=0.5cm,bottom=1cm"
+
+

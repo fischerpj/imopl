@@ -1,0 +1,44 @@
+# Bill of Materials
+
+le DPE indique une rénovation complète en **Isolation** (toit, murs, sols), **Chauffage** (+ECS), **Electricité**,  **Ouvertures** (portes, fenêtres),  
+
+IL faut finaliser la configuration énergétique, sur la base d'une auto_consommation photovoltaïque, On peut être assisté par un maître d'oeuvre pour une visite et un devis à 110€.
+
+```{r, BOM, echo= FALSE}
+library(hompl)
+travaux_eglantiers_() |>
+  dplyr::filter(projet=="EGL") |>
+  dplyr::select(dplyr::matches("^id|element|categorie|value|quant|prix")) |>
+  gt::gt() |>
+  gt::tab_header("Renovation Projet Eglantiers") |>
+  gt::grand_summary_rows(
+    columns = c("value"),
+    fns = list(
+      total = "sum"
+    ),
+    fmt = list(~gt::fmt_number(.,decimals = 3)),
+    side= "top") |>
+  gt::fmt_number(columns= "value", decimals=3) |>
+  gt::fmt_number(columns= "quant", decimals=1)
+
+```
+Le prix d'une rénovation électrique est de 95€/m² en moyenne, avec une fourchette comprise entre 50€ et 200€/m² main-d'œuvre incluse. En outre le tarif d'une rénovation électrique varie de 50€ à 80€/m² pour une mise en sécurité et de 125€ à 200€/m² pour une réfection complète.
+
+```{r, CAT, echo= FALSE}
+tibble::tribble(
+    ~id, ~desc,
+    "G", "gros-oeuvre",
+    "I", "isolation",
+    "F", "ouvertures",
+    "E", "électricité",
+    "C", "chauffage",
+    "W", "eau&sanitaire",
+    "S", "sols",
+    "M", "murs&plafond",
+    "A", "équipements",
+    "K", "cuisine",
+    "X", "divers",
+  ) |> 
+  gt::gt() |>
+  gt::tab_header("Categories de Travaux")
+```

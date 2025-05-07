@@ -1,9 +1,29 @@
 # Parcelles
 
-## IV265
+## IV268, Hortensias 16, Mme Galceran
 
-## IV265
+## IV262, Glaieuls 10, M. Gaumain
 
-## IV265
+!["PC 34172 24 M0028 du 19/04/2024"](images/architecte_navarro.png){width="450"}
 
-## IV265
+## IV263, Glaieuls 8, époux SELME
+
+536 / 107 m2 / 5% / 207 kWh/m².an
+
+-   Taxe foncière de 2104 euros
+
+![](images/IV0263_glaieuls8.png){width="500"}
+
+## IV264 Glaieuls 6, époux Braimis
+
+## IV265 Glaieuls 4, M. Spassaro
+
+dimensions approchées : largeur:12.90 longueur: (37.4+33.81)/2 surface approchée: `r round(12.90*(37.4+33.81)/2,2)` m2
+
+## IV308 Hortensias 33, M. Cointrel
+
+![PC du 01/08/2023](images/33hortensias/1730735565987.jpg){width="500"}
+
+PC 34172 22 M0197 M03 du 01/08/2024 ??
+
+-   2U2-1fw
