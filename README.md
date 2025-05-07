@@ -8,7 +8,11 @@ date: "2024-07-14"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## HOMPL
+## HOMPL as 
+
+```         
+https://github.com/fischerpj/imopl.git
+```
 
 projets en forme de quarto_books sur Mas de Tesse, GLAIEULS (itself is a Quarto Book Project), Etoile_Cuisine (à reloger en Etoile348)
 
